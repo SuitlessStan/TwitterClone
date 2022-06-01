@@ -1,0 +1,81 @@
+:root {
+  --primary: #1d9bf0;
+  --secondary: #e7e7e8;
+  --black: #0f1419;
+}
+
+/* Button */
+
+.btn {
+  background: var(--secondary);
+  color: var(--primary);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.btn:hover {
+  background: var(--primary);
+  color: var(--secondary);
+}
+
+/* Layout */
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 3fr 2fr;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 6fr;
+  }
+}
+
+.h-line {
+  color: #e7e7e8;
+}
+
+/* Margins & Padding */
+
+.p-1 {
+  padding: 1rem;
+}
+
+.p-2 {
+  padding: 2rem;
+}
+
+.p-3 {
+  padding: 3rem;
+}
+
+.m-1 {
+  margin: 1rem;
+}
+
+.m-2 {
+  margin: 2rem;
+}
+
+.m-3 {
+  margin: 3rem;
+}
+
+.my-1 {
+  margin: 1rem 0;
+}
+
+.my-2 {
+  margin: 2rem 0;
+}
+
+.my-3 {
+  margin: 3rem 0;
+}

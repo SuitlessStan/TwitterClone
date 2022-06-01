@@ -1,0 +1,207 @@
+@import url("https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Sanskrit&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Tiro Devanagari Sanskrit", serif;
+}
+
+:root {
+  --primary: #1d9bf0;
+  --secondary: #e7e7e8;
+  --black: #0f1419;
+}
+
+/* Buttons */
+
+.btn-twitter {
+  border-radius: 50%;
+}
+
+.btn-nav {
+  background: white !important;
+  color: #0f1419;
+  display: flex;
+  justify-content: space-between;
+  width: 6rem;
+}
+.btn-nav:hover {
+  background: var(--secondary) !important;
+  color: var(--black) !important ;
+}
+
+.btn-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 15rem;
+  border-radius: 20px !important;
+  background: white !important;
+  color: var(--black) !important;
+}
+
+.btn-user:hover {
+  background: var(--secondary) !important;
+  color: var(--black) !important;
+}
+
+.btn-submit {
+  float: right;
+  background: var(--primary) !important;
+  color: white !important;
+  border: none;
+  border-radius: 30px !important;
+  padding: 0.7rem 1.5rem !important;
+  font-size: 0.9rem;
+}
+.btn-submit:hover {
+  background: #1a8cd8 !important;
+  color: white !important;
+}
+
+.btn-options {
+  background: white;
+  border: none;
+}
+.btn-options:hover {
+  background: var(--secondary);
+  color: black;
+}
+/* Navigation  */
+
+#navigation {
+  border-right: 1px solid;
+  border-right-color: var(--secondary);
+}
+
+.navigation-buttons {
+  padding: 0 1rem;
+}
+
+.nav-list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 80vh;
+}
+
+.nav-list li {
+  display: inline-block;
+  margin: 0;
+  width: fit-content;
+}
+
+.nav-list li a {
+  text-decoration: none;
+  color: #0f1419;
+}
+
+.nav-list .user-info {
+  display: flex;
+  gap: 0.5rem;
+}
+.profile-image img {
+  border-radius: 50%;
+}
+
+.profile-details {
+  flex-grow: 2;
+}
+
+.icon {
+  flex-grow: 1;
+  text-align: right;
+}
+
+/* News Feed */
+
+#newsfeed {
+  border-right: 1px solid #e7e7e8;
+}
+
+.first-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+#tweetArea {
+  width: 100%;
+  height: 15vh;
+  border: none;
+  font-size: 1.3rem;
+  resize: none;
+}
+
+#tweetArea:focus {
+  outline: none;
+}
+
+#username {
+  width: 100%;
+  border: none;
+  margin-bottom: 0.5rem;
+}
+#username:focus {
+  outline: none;
+}
+
+.tweet-list {
+  list-style-type: none;
+  margin: 1rem 0;
+}
+.tweet-list li {
+  margin: 0.5rem 0;
+}
+
+.user-information {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.user-details {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+/* Trends */
+
+.trends {
+  background: #f7f9f9;
+  color: #0f1419;
+  height: 80vh;
+  border-radius: 10px;
+}
+
+.trends-list {
+  list-style-type: none;
+}
+
+.trending {
+  color: #75828d;
+}
+
+/* Media Queries */
+
+@media (max-width: 768px) {
+  #navigation {
+    display: none;
+  }
+
+  #trends {
+    display: none;
+  }
+
+  #newsfeed {
+    width: 100%;
+  }
+  .first-row {
+      height: 10vh;
+  }
+  #tweetArea {
+      height: 10vh;
+  }
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.css"
+      integrity="sha512-1hsteeq9xTM5CX6NsXiJu3Y/g+tj+IIwtZMtTisemEv3hx+S9ngaW4nryrNcPM4xGzINcKbwUJtojslX2KG+DQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./styles/app.css" />
+    <link rel="stylesheet" href="./styles/util.css" />
+    <title>Twitter Clone</title>
+  </head>
+  <body>
+    <div class="grid">
+      <!-- Left side navigation -->
+      <section id="navigation">
+        <div class="container p-2">
+          <div class="topLink">
+            <a href="https://www.twitter.com/esamolwan" target="_blank" class="btn btn-twitter">
+              <i class="fa-brands fa-twitter"></i>
+            </a>
+          </div>
+          <ul class="nav-list my-1">
+            <li>
+              <a href="/" class="btn btn-nav">
+                <i class="fa-solid fa-house-chimney-window"></i>
+                <b>Home</b>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.twitter.com/esamolwan" class="btn btn-user">
+                <div class="profile-image">
+                  <img
+                    src="./images/profile-picture.jpg"
+                    alt="profile"
+                    width="30"
+                    height="30"
+                  />
+                </div>
+                <div class="profile-details">
+                  <p>Issam Olwan</p>
+                  <p>@esamolwan</p>
+                </div>
+                <div class="icon">
+                  <i class="fa-solid fa-ellipsis"></i>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- News feed -->
+      <section id="newsfeed">
+        <div class="container p-2">
+          <h1>Home</h1>
+          <br />
+          <div class="createTweet">
+            <form action="" id="tweetForm">
+              <input
+                type="text"
+                name="username"
+                id="username"
+                placeholder="username"
+                required
+              />
+              <div class="first-row">
+                <div class="profile-image">
+                  <img
+                    src="./images/user-icon.png"
+                    alt="userProfile"
+                    width="60"
+                    height="60"
+                  />
+                </div>
+                <textarea
+                  name="tweet"
+                  id="tweetArea"
+                  placeholder="What's happening?"
+                  required
+                ></textarea>
+              </div>
+              <hr />
+              <br />
+              <button type="submit" class="btn btn-submit">Tweet</button>
+            </form>
+          </div>
+          <div class="tweetsContainer my-3">
+            <ul class="tweet-list" id="tweets-list">
+              
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Trends -->
+      <section id="trends">
+        <div class="container my-3">
+          <div class="trends container p-2">
+            <h1>Trending</h1>
+            <ul id="trends-list" class="trends-list my-2">
+              <li>
+                <div class="trendItem">
+                  <span class="trending">Trending</span>
+                  <h3>Lorem, ipsum.</h3>
+                  <small>3334 Tweets</small>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="./js/app.js"></script>
+  </body>
+</html>
