@@ -69,6 +69,12 @@
   background: var(--secondary);
   color: black;
 }
+
+.btn-tweet {
+    background: white;
+    border: none;
+    color: var(--black);
+}
 /* Navigation  */
 
 #navigation {
@@ -85,7 +91,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 80vh;
+  height: 500px;
 }
 
 .nav-list li {
@@ -167,6 +173,13 @@
   justify-content: space-between;
 }
 
+.tweet-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 0.5rem;
+}
+
 /* Trends */
 
 .trends {
@@ -199,9 +212,9 @@
     width: 100%;
   }
   .first-row {
-      height: 10vh;
+    height: 10vh;
   }
   #tweetArea {
-      height: 10vh;
+    height: 10vh;
   }
 }

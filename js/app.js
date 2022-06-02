@@ -1,5 +1,5 @@
 class Tweet {
-  constructor(author, content, id) {
+  constructor(author, content, id, retweeted, liked) {
     this.author = author;
     this.content = content;
     this.id = id;
@@ -22,6 +22,7 @@ class Tweet {
 var tweets = [];
 
 const form = document.getElementById("tweetForm");
+const tweetsList = document.getElementById("tweets-list");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -33,19 +34,17 @@ form.addEventListener("submit", (event) => {
 
   tweets.push(newTweet);
 
-  const filteredTweetsById = getUniqueListBy(tweets, "id");
+  tweets = getUniqueListBy(tweets, "content");
 
-  filteredTweetsById.map((tweet) => {
-    return createTweet(tweet.author, tweet.content);
-  });
+  refreshFeed();
 
-  window.localStorage.setItem(newTweet.id, JSON.stringify(newTweet));
+  // window.localStorage.setItem(newTweet.id, JSON.stringify(newTweet));
 });
 
-function createTweet(author, content) {
+function createTweet(tweet) {
   let tweetTemplate = `
-    <li>
-                    <div class="tweet">
+                  <li>
+                    <div class="tweet" id=${tweet.id}>
                       <div class="user-information">
                         <div class="user-profile">
                           <img
@@ -57,7 +56,7 @@ function createTweet(author, content) {
                         </div>
                         <div class="user-details">
                           <div class="username">
-                            <h4 id="username">@${author}</h4>
+                            <h4 id="username">@${tweet.author}</h4>
                           </div>
                           <div class="elipses-icon">
                             <button class="btn-options">
@@ -66,21 +65,43 @@ function createTweet(author, content) {
                           </div>
                         </div>
                       </div>
-                      <div class="tweet-content my-1">
+                      <div class="tweet-content">
                         <p>
-                         ${content}
+                         ${tweet.content}
                         </p>
+                        <div class="tweet-buttons">
+                        <button class="btn-tweet"><i class="fa-solid fa-heart "></i></button>
+                        <button onclick="isRetweeted(${tweet.id})" class="btn-tweet"><i class="fa-solid fa-retweet "></i></button>
+                        </div>
                       </div>
-                      <hr class="h-line" />
+                      <br/>
+                      <hr class="h-line"/>
                     </div>
                   </li>
     `;
 
-  var tweetsList = document.getElementById("tweets-list");
-
   tweetsList.insertAdjacentHTML("beforeend", tweetTemplate);
+}
+
+function isRetweeted(tweetID) {
+  const filteredTweet = tweets.filter((tweet) => tweet.id === tweetID);
+  removeElement(tweets, filteredTweet);
+  tweets.unshift(filteredTweet[0]);
+  refreshFeed();
 }
 
 function getUniqueListBy(arr, key) {
   return [...new Map(arr.map((item) => [item[key], item])).values()];
+}
+
+function removeElement(arr, item) {
+  let index = arr.indexOf(item);
+  arr.splice(index, 1);
+}
+
+function refreshFeed() {
+  tweetsList.innerHTML = "";
+  tweets.forEach((tweet) => {
+    return createTweet(tweet);
+  });
 }
