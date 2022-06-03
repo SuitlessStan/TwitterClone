@@ -4,6 +4,7 @@ class Tweet {
     this.content = content;
     this.id = id;
     this.liked = false;
+    this.retweeted = false;
   }
   getTweet() {
     return this.author, this.content, this.id, this.liked;
@@ -23,6 +24,14 @@ class Tweet {
   }
   getLiked() {
     return this.liked;
+  }
+
+  setRetweeted() {
+    this.retweeted = !this.retweeted;
+  }
+
+  getRetweeted() {
+    return this.retweeted;
   }
 }
 
@@ -49,15 +58,13 @@ form.addEventListener("submit", (event) => {
 });
 
 function createTweet(tweet) {
-  let tweetTemplate = "";
-  if (tweet.liked) {
-    tweetTemplate = `
+  tweetTemplate = `
     <li>
       <div class="tweet">
         <div class="user-information">
           <div class="user-profile">
             <img
-              src="./images/user-icon.png"
+              src="./images/sophie.jpg"
               alt="userProfile"
               width="40"
               height="40"
@@ -79,8 +86,16 @@ function createTweet(tweet) {
            ${tweet.content}
           </p>
           <div class="tweet-buttons">
-          <button class="btn-tweet" onclick="isLiked(${tweet.id})"><i class="fa-solid fa-heart" style='color:red;'> </i></button>
-          <button onclick="isRetweeted(${tweet.id})" class="btn-tweet"><i class="fa-solid fa-retweet" ></i></button>
+          <button class="btn-tweet" onclick="isLiked(${
+            tweet.id
+          })"><i class="fa-solid fa-heart" style='color:${
+    tweet.liked ? "red" : "black"
+  };'> </i></button>
+          <button onclick="isRetweeted(${
+            tweet.id
+          })" class="btn-tweet"><i class="fa-solid fa-retweet"  style='color:${
+    tweet.retweeted ? "#0EBD83" : "black"
+  }'></i></button>
           </div>
         </div>
         <br/>
@@ -88,53 +103,26 @@ function createTweet(tweet) {
       </div>
     </li>
     `;
-  } else {
-    tweetTemplate = `
-    <li>
-      <div class="tweet">
-        <div class="user-information">
-          <div class="user-profile">
-            <img
-              src="./images/user-icon.png"
-              alt="userProfile"
-              width="40"
-              height="40"
-            />
-          </div>
-          <div class="user-details">
-            <div class="username">
-              <h4 id="username">@${tweet.author}</h4>
-            </div>
-            <div class="elipses-icon">
-              <button class="btn-options">
-                <i class="fa-solid fa-ellipsis"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="tweet-content">
-          <p>
-           ${tweet.content}
-          </p>
-          <div class="tweet-buttons">
-          <button class="btn-tweet" onclick="isLiked(${tweet.id})"><i class="fa-solid fa-heart" style='color:black;'> </i></button>
-          <button onclick="isRetweeted(${tweet.id})" class="btn-tweet"><i class="fa-solid fa-retweet" ></i></button>
-          </div>
-        </div>
-        <br/>
-        <hr class="h-line"/>
-      </div>
-    </li>
-    `;
-  }
 
   tweetsList.insertAdjacentHTML("beforeend", tweetTemplate);
 }
 
+
+
 function isRetweeted(tweetID) {
-  const filteredTweet = tweets.filter((tweet) => tweet.id === tweetID);
-  removeElement(tweets, filteredTweet);
-  tweets.unshift(filteredTweet[0]);
+  for (let i = 0; i < tweets.length; i++) {
+    if (tweets[i].id == tweetID) {
+      let retweetedTweet = tweets[i];
+      if (!retweetedTweet.getRetweeted()) {
+        removeElement(tweets, retweetedTweet);
+        retweetedTweet.setRetweeted();
+        tweets.unshift(retweetedTweet);
+      } else {
+        retweetedTweet.setRetweeted();
+        refreshFeed();
+      }
+    }
+  }
   refreshFeed();
 }
 

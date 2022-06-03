@@ -175,6 +175,11 @@
   width: 100%;
   justify-content: space-between;
 }
+.user-profile img {
+  height:60px;
+  width: 60px;
+  border-radius: 50%;
+}
 
 .tweet-buttons {
   width: 100%;
