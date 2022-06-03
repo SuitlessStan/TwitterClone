@@ -126,7 +126,10 @@
 
 #newsfeed {
   border-right: 1px solid #e7e7e8;
+  overflow-y: scroll;
 }
+
+
 
 .first-row {
   display: flex;
@@ -185,7 +188,7 @@
 .trends {
   background: #f7f9f9;
   color: #0f1419;
-  height: 80vh;
+  height: 500px;
   border-radius: 10px;
 }
 
