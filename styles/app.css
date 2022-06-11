@@ -71,9 +71,9 @@
 }
 
 .btn-tweet {
-    background: white;
-    border: none;
-    color: var(--black);
+  background: white;
+  border: none;
+  color: var(--black);
 }
 /* Navigation  */
 
@@ -91,7 +91,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 500px;
 }
 
 .nav-list li {
@@ -126,10 +125,7 @@
 
 #newsfeed {
   border-right: 1px solid #e7e7e8;
-  overflow-y: scroll;
 }
-
-
 
 .first-row {
   display: flex;
@@ -149,8 +145,10 @@
 }
 
 #username {
-  width: 100%;
-  border: none;
+  width: 60%;
+  border: 3px solid var(--secondary);
+  padding: 0.5rem;
+  border-radius: 10px;
   margin-bottom: 0.5rem;
 }
 #username:focus {
@@ -176,7 +174,7 @@
   justify-content: space-between;
 }
 .user-profile img {
-  height:60px;
+  height: 60px;
   width: 60px;
   border-radius: 50%;
 }

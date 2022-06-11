@@ -64,7 +64,7 @@ function createTweet(tweet) {
         <div class="user-information">
           <div class="user-profile">
             <img
-              src="./images/sophie.jpg"
+              src="./images/user-icon.png"
               alt="userProfile"
               width="40"
               height="40"
@@ -72,7 +72,7 @@ function createTweet(tweet) {
           </div>
           <div class="user-details">
             <div class="username">
-              <h4 id="username">@${tweet.author}</h4>
+              <h4>@${tweet.author}</h4>
             </div>
             <div class="elipses-icon">
               <button class="btn-options">
